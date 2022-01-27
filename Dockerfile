@@ -1,5 +1,14 @@
-FROM mirrors.tencent.com/openjdk/openjdk:11.0.9.1-jdk
+FROM 19-jdk-buster
 
-ADD target/spring-coroutine.jar /app/
+RUN echo "\
+    deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free \
+    deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-updates main contrib non-free  \
+    deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-backports main contrib non-free \
+    deb https://mirrors.tuna.tsinghua.edu.cn/debian-security buster/updates main contrib non-free \
+    " > /etc/apt/sources.list
 
-CMD java ${JAVA_OPTIONS} -jar /app/spring-coroutine.jar
+RUN apt-get update
+
+RUN apt-get install net-tools
+
+RUN apt-get install maven

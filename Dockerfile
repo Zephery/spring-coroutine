@@ -1,4 +1,4 @@
-FROM 19-jdk-buster
+FROM openjdk:19-jdk-buster
 
 RUN echo "\
     deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free \

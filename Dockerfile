@@ -9,6 +9,6 @@ RUN echo "\
 
 RUN apt-get update
 
-RUN apt-get install net-tools
+RUN apt-get install net-tools -y
 
-RUN apt-get install maven
+RUN apt-get install maven -y
